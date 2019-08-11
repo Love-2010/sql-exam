@@ -1,0 +1,38 @@
+项目三：超过5名学生的课（难度：简单）
+—>select class from courses group by class having count(DISTINCT student) >= 5;
+±--------+
+| class |
+±--------+
+| Math |
+±--------+
+项目四：交换工资（难度：简单）
+update salary set sex= if (sex=‘f’,‘m’,‘f’);
+项目五：有趣的电影 （难度：简单）
+----->select * from cinema where description!=‘boring’ and id%2 != 0 order by rating desc;
+
+±--------±----------±-------------±----------+
+| id | movie | description | rating |
+±--------±----------±-------------±----------+
+| 5 | House card| Interesting| 9.1 |
+| 1 | War | great 3D | 8.9 |
+±--------±----------±-------------±----------+
+项目七：删除重复的邮箱（难度：简单）
+DELETE FROM email WHERE
+id NOT IN(
+SELECT t.tid FROM(
+SELECT MIN(id) AS tid FROM email GROUP BY Email) t
+);
+±—±-----------------+
+| Id | Email |
+±—±-----------------+
+| 1 | a@b.com |
+| 2 | c@d.com |
+±—±-----------------+
+项目九：超过经理收入的员工（难度：简单）
+---->Select e1.Name as Employee from Employee e1 , Employee e2 where e1.ManagerId = e2.Id and e1.Salary > e2.Salary
+
+±---------+
+| Employee |
+±---------+
+| Joe |
+±---------+
